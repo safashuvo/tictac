@@ -5,7 +5,7 @@ body {
    justify-content: center;
    align-items: center;
    height: 100vh;
-   background-color: #000;
+   background-color: rgb(44, 44, 44);
    user-select: none;
 }
 .item {
@@ -73,7 +73,7 @@ h1 {
    font-size: 40px;
 }
 .start,
-.end {
+.end , .choose, .difficulty, .hardPage{
    display: none;
    position: absolute;
    backdrop-filter: blur(5px);
