@@ -1,3 +1,7 @@
+* {
+   margin: 0;
+   padding: 0;
+}
 body {
    font-family: monospace;
    display: flex;
@@ -19,8 +23,8 @@ body {
    height: 300px;
    width: 300px;
    display: grid;
-   grid-template-columns: repeat(3, 100px);
-   grid-template-rows: repeat(3, 100px);
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(3, 1fr);
    position: relative;
 }
 
@@ -43,6 +47,7 @@ button {
    cursor: pointer;
    letter-spacing: 2px;
    text-transform: uppercase;
+   transition: all 0.5s;
 }
 .i1,
 .i2,
@@ -73,7 +78,10 @@ h1 {
    font-size: 40px;
 }
 .start,
-.end , .choose, .difficulty, .hardPage{
+.end,
+.choose,
+.difficulty,
+.hardPage {
    display: none;
    position: absolute;
    backdrop-filter: blur(5px);
@@ -81,6 +89,13 @@ h1 {
    height: 100%;
    text-align: center;
    padding-top: 40px;
+   overflow: hidden;
+}
+.choose {
+   transform: translateY(-100px);
+}
+.difficulty {
+   transform: translateX(-100px);
 }
 .invisible {
    display: none;
@@ -94,4 +109,11 @@ h1 {
 }
 #again {
    margin-top: 15px;
+}
+
+/* Responsive for mobile device */
+@media only screen and (max-width: 576px) {
+   .main {
+      width: 100%;
+   }
 }

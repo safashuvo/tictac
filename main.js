@@ -1,3 +1,4 @@
+let main = document.querySelector('.main');
 let item = document.querySelectorAll('.item');
 let again = document.querySelector('#again');
 let para = document.querySelector('p');
@@ -10,6 +11,8 @@ let choose = document.querySelector('.choose');
 let friend = document.querySelector('.friend');
 let computer = document.querySelector('.computer');
 let difficulty = document.querySelector('.difficulty');
+let difficultyH2 = document.querySelector('.difficulty h2');
+let difficultyBtn = document.querySelectorAll('.difficulty button');
 let easy = document.querySelector('.easy');
 let hard = document.querySelector('.hard');
 let hardPage = document.querySelector('.hardPage');
@@ -26,6 +29,10 @@ startBtn.addEventListener('click', (e) => {
    e.preventDefault();
    start.style.display = 'none';
    choose.style.display = 'block';
+   choose.style.transition = 'all 0.5s';
+   setTimeout(() => {
+      choose.style.transform = 'translateY(0px)';
+   }, 100);
 });
 friend.addEventListener('click', (e) => {
    e.preventDefault();
@@ -176,11 +183,21 @@ computer.addEventListener('click', (e) => {
    e.preventDefault();
    choose.style.display = 'none';
    difficulty.style.display = 'block';
+   difficulty.style.transition = 'all 0.5s';
+   setTimeout(() => {
+      difficulty.style.transform = 'translateX(0px)';
+   }, 100);
 });
 easy.addEventListener('click', (e) => {
    e.preventDefault();
-   difficulty.style.display = 'none';
-   /////////////////////
+   //animation
+   difficultyH2.style.transform = 'translateY(600px)';
+   difficultyBtn[0].style.transform = 'translateY(600px)';
+   difficultyBtn[1].style.transform = 'translateY(600px)';
+   setTimeout(() => {
+      difficulty.style.display = 'none';
+   }, 1000);
+   //easy algorithm
    for (let i = 0; i < 9; i++) {
       item[i].addEventListener('click', () => {
          if (true) {
@@ -358,3 +375,8 @@ again.addEventListener('click', (e) => {
    }
    end.style.display = 'none';
 });
+
+if (main.clientWidth <= 576) {
+   main.style.height = `${main.clientWidth}px`;
+   console.log(main.clientHeight);
+}
